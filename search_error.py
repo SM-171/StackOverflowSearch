@@ -42,7 +42,7 @@ if __name__ == "__main__":
         open_url(get_urls(jsons[1]))
         open_url(get_urls(jsons[2]))
     else:
-        print("No error")
+        print("No errors found")
 
 
 
