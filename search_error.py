@@ -6,8 +6,7 @@ import webbrowser
 def execute_return(cmd):
     args = cmd.split()
     proc = Popen(args, stdout = PIPE, stderr = PIPE)
-    output, error = proc.communicate()
-    return output, error
+    return proc.communicate()
 
 
 def make_request(error):
@@ -17,12 +16,10 @@ def make_request(error):
 
 def get_urls(json_dict):
     url_list = []
-    count = 0
     for item in json_dict["items"]:
         if item["is_answered"]:
             url_list.append(item["link"])
-        count += 1
-        if count == 3 or count == len(item):
+        if len(url_list):
             return url_list
     
 
